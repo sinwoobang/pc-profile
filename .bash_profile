@@ -1,4 +1,6 @@
 # ls
+export LSCOLORS=GxFxCxDxBxegedabagaced
+alias ls='ls -G'
 alias l='ls'
 alias ll='ls -al'
 
@@ -21,13 +23,14 @@ git() {
     fi;
 }
 
-# pyenv
-export PATH="/Users/sinwoobang/.pyenv/shims:${PATH}"
-
 # mysql-server
 export PATH="/usr/local/mysql/bin:${PATH}"
 
-source "$HOME/.bash_color_profile"  # set shell color
-[[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# set powerline
+export TERM=xterm-256color
+powerlineLocation=/Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh
+if [ -f $powerlineLocation ]; then
+    source $powerlineLocation
+fi
 
-# export PYTHONPATH=/Library/Python/2.7/site-packages/:$PYTHONPATH
+# [[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
